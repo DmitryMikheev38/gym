@@ -1,0 +1,134 @@
+.pr-card {
+  height: 498px;
+  padding: 0 65px 0 65px;
+}
+
+.pr-card__logo {
+  width: 41px;
+  height: 41px;
+  margin: 110px auto 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pr-card__header {
+  text-align: center;
+  margin: 25px auto 0 auto;
+}
+
+.pr-card__description {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 28px;
+  line-height: 2em;
+}
+
+.list {
+  list-style: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #a5a5a5;
+  padding-left: 33px;
+  margin-top: 49px;
+  margin-left: -3px;
+}
+
+.list__cell {
+  margin: 0;
+  min-height: 33px;
+  line-height: 33px;
+  margin-bottom: 22px;
+  padding-left: 19px;
+  position: relative;
+}
+
+.list__cell::before {
+  content: '';
+  display: block;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  left: -33px;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carousel__item {
+  width: 350px;
+  height: 100%;
+  margin-right: 30px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.classes-slider__carousel {
+  width: 1500px;
+}
+
+.item__content {
+  background-color: #eef3f6;
+  padding: 72px 20px 108px 20px;
+  text-align: center;
+  position: relative;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.item__content__yoga-header {
+  color: #2c2c2c;
+  font-weight: 700;
+  font-size: 24px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.item__content__text {
+  margin: 0;
+  margin-top: 25px;
+}
+
+.content__item-photo {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 101px;
+  height: 101px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 101px 101px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transition: all .2s;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+}
+
+.carousel__item:hover > .item__content {
+  background-color: #190a49;
+}
+
+.carousel__item:hover > .item__content > .item__content__yoga-header {
+  color: white;
+}
+
+.carousel__item:hover > .item__content > .content__item-photo {
+  -webkit-box-shadow: inset 0px  0px  0px 3px #ff0e3b;
+          box-shadow: inset 0px  0px  0px 3px #ff0e3b;
+}
+/*# sourceMappingURL=pageElemetns.css.map */

@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800');
+
+@import './buttons.scss';
+@import './font.scss';
+@import './pageElemetns.scss';
