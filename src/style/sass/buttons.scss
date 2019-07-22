@@ -82,19 +82,19 @@
 }
 
 .burger-button:hover > .burger-icon {
-  background-color: #dc3545;
+  background-color: #ff0e3b;
 }
 
 .burger-button:hover > .burger-icon::after,
 .burger-button:hover > .burger-icon::before {
-  background-color: #dc3545;
+  background-color: #ff0e3b;
 }
 // .burger-icon::after {
 //  top: 70%;
 // }
 
 .main-button:hover {
-  color: #dc3545;
+  color: #ff0e3b;
 }
 
 a {
@@ -156,6 +156,7 @@ a {
   width: 100%;
   z-index: 10;
   position: absolute;
+  font-weight: 700;
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -243,4 +244,30 @@ a {
 
 .button-active:hover {
   color: white;
+}
+
+.close-btn {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  position: absolute;
+  top: 60px;
+  right: 40px;
+}
+
+.close-btn:hover {
+  color: #ff0e3b;
+}
+
+
+.router-link-exact-active {
+  color: #ff0e3b;
 }

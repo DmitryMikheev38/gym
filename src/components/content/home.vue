@@ -161,9 +161,9 @@
       <div
         class="pralax-background"
         data-parallax="scroll"
-        data-image-src="static/images/pricing.jpg"
         data-speed="0.7"
-        bleed="40"
+        data-bleed="100"
+        data-natural-height="1300"
       ></div>
       <div class="pricing__container">
         <div class="pricing__header-container">
@@ -371,6 +371,9 @@ export default {
     console.log("beforeMount from Home");
   },
   mounted() {
+     $('.pralax-background').parallax({imageSrc: 'static/images/pricing.jpg',
+});
+
     //---------found scroll width---------//
 
     var div = document.createElement("div");
@@ -489,7 +492,7 @@ export default {
           0: {
             items: 1
           },
-          600: {
+          766: {
             items: 2
           },
           1000: {
@@ -689,9 +692,9 @@ export default {
   border: none;
   margin: 0;
   background-color: lightgrey;
-  width: calc(100% - 160px);
+  width: calc(100% - 250px);
   bottom: 0;
-  margin-left: 80px;
+  margin-left: 70px;
 }
 
 .about-sportify__container {
@@ -881,6 +884,14 @@ export default {
   .classes-slider {
     height: 430px;
   }
+
+  .pricing__container {
+    width: 960px;
+  }
+
+  .pricing__item {
+    width: 290px;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -940,6 +951,16 @@ export default {
   }
 }
 
+@media (max-width: 990px) {
+  .pricing__container {
+    width: 720px;
+  }
+
+  .pricing__item {
+    width: 330px;
+  }
+}
+
 @media (max-width: 850px) {
   .preview__images__image__info {
     left: 60px;
@@ -948,6 +969,16 @@ export default {
    .cta__content__cantainer {
     padding-left: 60px;
     padding-right: 60px;
+  }
+}
+
+@media (max-width: 766px) {
+  .pricing__container {
+    width: 540px;
+  }
+
+  .pricing__item {
+    width: 100%;
   }
 }
 
@@ -1044,9 +1075,78 @@ export default {
   }
 
   .classes__container {
+    width: 510px;
+  }
+
+  .carousel__item {
+    width: 480px;
+  }
+
+  .pricing__container {
     width: 100%;
   }
 
+  .item__content {
+    width: 100%;
+  }
+}
 
+@media (max-width: 530px) {
+.classes__container {
+    width: 460px;
+  }
+
+  .carousel__item {
+    width: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+.classes__container {
+    width: 410px;
+  }
+
+  .carousel__item {
+    width: 380px;
+  }
+}
+
+@media (max-width: 425px) {
+.classes__container {
+    width: 360px;
+  }
+
+  .carousel__item {
+    width: 330px;
+  }
+
+  .classes-slider {
+    height: 100%;
+  }
+}
+
+.classes__container {
+  height: 610px;
+}
+
+
+@media (max-width: 380px) {
+.classes__container {
+    width: 310px;
+  }
+
+  .carousel__item {
+    width: 280px;
+  }
+}
+
+@media (max-width: 330px) {
+.classes__container {
+    width: 280px;
+  }
+
+  .carousel__item {
+    width: 250px;
+  }
 }
 </style>

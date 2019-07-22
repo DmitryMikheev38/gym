@@ -1,11 +1,10 @@
 <template>
-  <div class="header">
-    <div class="header__wrapper">
-      <a class="logo header__logo">
-        <img src="@/assets/logo_1.png" alt srcset />
-      </a>
-
-      <div class="main header__main">
+<transition name="sh" appear>
+  <div class="burger-main" ref="burgerMain">
+    <div class="left-gate gate" ref="left"></div>
+    <div class="rigth-gate gate" ref="rigth"></div>
+    <div class="burger-nain__wrapper" ref="wrap">
+      <div class="main burger-nain__main" @click="close">
         <router-link tag="a" to="/" class="main-button main__main-button">Home</router-link>
         <router-link tag="a" to="/aboutUs" class="main-button main__main-button">About us</router-link>
         <router-link tag="a" to="/classes" class="main-button main__main-button">Classes</router-link>
@@ -13,11 +12,9 @@
         <router-link tag="a" to="/contact" class="main-button main__main-button">Contact</router-link>
       </div>
 
-      <a href="#" class="burger-button header__burger-button" @click="open">
-        <div class="burger-icon"></div>
-      </a>
+      <a href="#" class="burger-main__close close-btn" @click="close">Close</a>
 
-      <div class="social-network header__social-network">
+      <div class="social-network burger-main__social-network">
         <router-link tag="a" to class="social-network__icon pintres">
           <svg class="icon icon-pinterest">
             <use xlink:href="#icon-pinterest">
@@ -89,213 +86,125 @@
       </div>
     </div>
   </div>
+</transition>
 </template>
 
 <script>
 export default {
   methods: {
-    open(e) {
+    close (e) {
       e.preventDefault();
-      const left = document.querySelector(".left-gate");
-      const right = document.querySelector(".rigth-gate");
-      const burgerMain = document.querySelector('.burger-main');
-      const wrap = document.querySelector(".burger-nain__wrapper");
-      const main = document.querySelector('.burger-nain__main').children;
-      burgerMain.style.display = 'block';
-      setTimeout(()=> {
-          wrap.style.transitionDelay = '1s';
-       wrap.style.opacity = '1';
-
-       Object.assign(burgerMain.style, {
-        display: "block"
-      })
+      console.log(this.$refs.rigth)
+      const left = this.$refs.left;
+      const right = this.$refs.rigth;
+      const wrap = this.$refs.wrap;
 
       Object.assign(left.style, {
-        transitionDelay: "0s",
-        width: "50%"
+        transitionDelay: "0.3s",
+        width: "0"
       })
 
       Object.assign(right.style, {
-        transitionDelay: "0s",
-        width: "50%"
+        transitionDelay: "0.3s",
+        width: "0"
       })
-      }, 100)
 
+      wrap.style.opacity = '0';
+       wrap.style.transitionDelay = '0s'
+      // right.style.width = '0';
+      // left.style.width = '0';
 
-      console.log(main)
-
+      setTimeout(() => {
+        this.$refs.burgerMain.style.display = 'none';
+      }, 1500)
     }
   }
 };
 </script>
-<style>
-.header {
-  position: absolute;
-  width: calc(100% - 320px);
-  height: 96px;
-  left: 160px;
-  top: 60px;
-  background: #190a49;
-  border-bottom: solid 2px #ff0e3b;
-  z-index: 1000;
-}
 
-.header__burger-button {
-  position: absolute;
-  right: 30px;
-  top: 50%; transform: translateY(-50%);
+<style scoped>
+.burger-main {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  min-height: 100%;
+  /* background-color: rgba(25, 10, 73, 0.85); */
+  z-index: 10000;
   display: none;
 }
 
-.header__wrapper {
+.gate {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(25, 10, 73, 0.85);
+  transition: all 1.2s;
+}
+
+.left-gate {
+  right: 50%;
+}
+
+.rigth-gate {
+  left: 50%;
+}
+
+.burger-nain__wrapper {
   width: 100%;
   height: 100%;
-  padding-top: 12px;
+  opacity: 0;
+  transition: all 0.3s;
 }
 
-.header__logo {
-  position: absolute;
-  top: 50%;
-  left: 60px;
-  transform: translateY(-50%);
-}
-
-.header__main {
-  display: flex;
-  margin: 31px auto 0 auto;
-  width: 460px;
-  justify-content: space-between;
-}
-
-.main__main-button:last-child {
-  margin-right: 0;
-}
-
-.pintres__img {
-  height: 30px;
-  width: 30px;
-}
-
-.social-network__icon {
-  display: inline-block;
-  height: 30px;
-}
-
-.icon {
-  display: inline-block;
-  height: 15.6px;
-  width: 20px;
-  stroke-width: 0;
-  stroke: currentColor;
-}
-
-.header__social-network {
-  display: flex;
-  width: 180px;
-  height: 100%;
-  position: absolute;
-  justify-content: space-between;
-  padding-top: 46px;
-  right: 40px;
-  top: 0;
-}
-
-.my-header {
-  position: fixed;
-  height: 70px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  transform: translateY(-70px);
-  transition: transform 0.5s;
-}
-
-.my-header .show-header {
-  transform: translateY(0px);
-}
-
-.my-header .header__main {
-  align-items: center;
-  margin-top: 0;
-  height: 100%;
-}
-
-.my-header .header__social-network {
-  padding-top: 31px;
-}
-
-.my-header .header__logo {
-  width: 130px;
-  height: 25px;
-}
-
-.my-header .header__logo img {
+.burger-nain__main {
   display: block;
+  width: 200px;
+  height: 250px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+.main__main-button {
+  display: block;
+  margin: 0;
+  font-size: 30px;
+  margin-top: 6px;
+  letter-spacing: 6px;
+}
+
+.burger-main__social-network {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  width: 200px;
+}
+
+.social-network__icon{
+  margin-right: 25px;
+}
+
+.social-network__icon:last-child {
+margin-right: 0;
+}
+
+.sh-enter {
+ width: 0%;
+ opacity: 0;
+}
+
+.sh-enter-active {
+  transition: all 1s;
+}
+
+.sh-enter-to {
   width: 100%;
-  height: 100%;
+  opacity: 1;
 }
-
-/*-------- adaptive style -------- */
-
-@media (max-width: 1350px) {
-  .header {
-    width: calc(100% - 120px);
-    left: 60px;
-  }
-
-  .my-header {
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-}
-
-@media (max-width: 1050px) {
-  .header__main {
-    display: none;
-  }
-
-  .header__social-network {
-    display: none;
-  }
-
-  .header__burger-button {
-    display: block;
-  }
-}
-
-@media (max-width: 850px) {
-  .header {
-    top: 30px;
-    left: 30px;
-    width: calc(100% - 60px);
-  }
-
-  .my-header {
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-}
-
-
-@media (max-width: 560px) {
-  .header {
-    top: 15px;
-    left: 15px;
-    width: calc(100% - 30px);
-  }
-
-  .my-header {
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-
-  .header__logo {
-    left: 30px;
-  }
-}
-
 
 </style>

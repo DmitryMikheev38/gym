@@ -100,14 +100,14 @@ button {
   bottom: 8px; }
 
 .burger-button:hover > .burger-icon {
-  background-color: #dc3545; }
+  background-color: #ff0e3b; }
 
 .burger-button:hover > .burger-icon::after,
 .burger-button:hover > .burger-icon::before {
-  background-color: #dc3545; }
+  background-color: #ff0e3b; }
 
 .main-button:hover {
-  color: #dc3545; }
+  color: #ff0e3b; }
 
 a {
   cursor: pointer; }
@@ -163,6 +163,7 @@ a {
   width: 100%;
   z-index: 10;
   position: absolute;
+  font-weight: 700;
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -240,6 +241,28 @@ a {
 
 .button-active:hover {
   color: white; }
+
+.close-btn {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  position: absolute;
+  top: 60px;
+  right: 40px; }
+
+.close-btn:hover {
+  color: #ff0e3b; }
+
+.router-link-exact-active {
+  color: #ff0e3b; }
 
 .header-1 {
   font-family: 'Open Sans', sans-serif;
@@ -619,5 +642,62 @@ a {
 
 .contact-block__string-2 {
   margin-top: 15px; }
+
+.trainer-card {
+  width: 285px;
+  padding: 0 15px; }
+
+.trainer-card__photo {
+  position: relative;
+  width: 100%; }
+
+.trainer-card__image {
+  display: block;
+  width: 100%; }
+
+.trainer-card__info {
+  background-color: white;
+  border: 1px solid black;
+  position: absolute;
+  width: 198px;
+  height: 120px;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.trainer-card__info__name {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  line-height: 1.2; }
+
+.trainer-card__info__work {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff0e3b;
+  margin-top: 7px; }
+
+.trainer-card__info .icon {
+  fill: #190a49;
+  margin: auto; }
+
+.trainer-card__info .icon:hover {
+  fill: #ff0e3b; }
+
+.trainer-card__info__network {
+  margin-top: 20px;
+  display: flex;
+  width: 100px;
+  justify-content: space-between; }
 
 /*# sourceMappingURL=index.css.map */

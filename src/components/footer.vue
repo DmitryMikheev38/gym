@@ -135,4 +135,18 @@ export default {
   color: #047a8a;
 }
 
+@media (max-width: 900px) {
+  .footer__contacts {
+    display: block;
+  }
+
+  .footer__contacts__block {
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+
+}
+
 </style>
