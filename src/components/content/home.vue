@@ -13,13 +13,14 @@
               class="preview__images__image"
               :style="{'width': windowWidth}"
             >
+            <div class="home__overlay"></div>
               <transition appear name="info">
                 <div class="preview__images__image__info">
                   <span class="text text--bold text--upper info__text">Go to the gym now!</span>
                   <h1 class="header-1 info__header">
                     <span class="bold">Never</span> limit yourself
                   </h1>
-                  <button class="btn-one image__info__btn-one" @click="getWidth" ref="button">
+                  <button class="btn-one image__info__btn-one" ref="button">
                     <span class="bth-one__text text--upper">read more</span>
                   </button>
                 </div>
@@ -100,8 +101,10 @@
         </div>
         <div class="about-sportify_logo"></div>
       </div>
-      <hr />
+
     </div>
+
+    <hr/>
 
     <div class="quote">
       <div class="quote__conteiner">
@@ -162,8 +165,6 @@
         class="pralax-background"
         data-parallax="scroll"
         data-speed="0.7"
-        data-bleed="100"
-        data-natural-height="1300"
       ></div>
       <div class="pricing__container">
         <div class="pricing__header-container">
@@ -336,7 +337,6 @@ export default {
     }
   },
   methods: {
-    getWidth() {},
     active(e) {
       if (e.target.tagName !== "BUTTON") return;
       if (!this.disabled) return;
@@ -394,6 +394,7 @@ export default {
       var width = document.documentElement.clientWidth + scrollWidth;
       var images = document.querySelectorAll(".preview__images__image");
       var imageGroup = document.querySelector(".preview__images__group");
+      if(imageGroup === null) return
       var active = document.querySelector(".active-image");
       var imageIndex = active.getAttribute("data-index");
 
@@ -407,7 +408,7 @@ export default {
     //---------init preview slider---------//
 
     var buttons = this.$refs.button;
-    buttons[1].classList.add("active");
+    buttons[1].classList.add("button-active");
 
     this.timer = setTimeout(
       function tick() {
@@ -514,12 +515,16 @@ export default {
   },
   beforeDestroy() {
     clearInterval(this.timer);
+    const mirror = $('.parallax-mirror')
+    for (let i =0; i<mirror.length; i++) {
+      mirror[i].remove()
+    }
   },
   destroyed() {}
 };
 </script>
 
-<style>
+<style scoped>
 .info-enter {
   opacity: 0;
 }
@@ -556,9 +561,18 @@ export default {
 
 .pricing {
   width: 100%;
-  min-height: 900px;
+  min-height: 993px;
   position: relative;
   padding: 100px 0px;
+}
+
+.home__overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(120,0,255,0.34), rgba(255,14,59,0.34));
 }
 
 .pricing__header-container {
@@ -611,7 +625,7 @@ export default {
 
 .classes-slider {
   width: 100%;
-  min-height: 401px;
+  min-height: 411px;
   margin-top: 90px;
 
   position: relative;
@@ -686,15 +700,15 @@ export default {
   position: relative;
 }
 
-.about-sportify hr {
-  position: absolute;
+hr {
+  position: relative;
+  display: block;
   height: 0.5px;
   border: none;
   margin: 0;
   background-color: lightgrey;
-  width: calc(100% - 250px);
-  bottom: 0;
-  margin-left: 70px;
+  width: calc(100% - 140px);
+  left: 70px;
 }
 
 .about-sportify__container {

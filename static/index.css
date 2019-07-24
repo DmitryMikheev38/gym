@@ -396,7 +396,8 @@ a {
   height: 100%;
   margin-right: 30px;
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: top;
+  position: relative; }
 
 .classes-slider__carousel {
   width: 1500px; }
@@ -418,6 +419,14 @@ a {
   margin: 0;
   margin-top: 25px; }
 
+.item__content__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 55px; }
+
+.item__content__name > span {
+  color: #909090; }
+
 .content__item-photo {
   display: block;
   box-sizing: content-box;
@@ -433,7 +442,7 @@ a {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   position: absolute;
-  bottom: -40px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
@@ -461,6 +470,9 @@ a {
 
 .carousel__item:hover > .item__content {
   background-color: #190a49; }
+
+.carousel__item:hover > .item__content > .item__content__name {
+  color: white; }
 
 .carousel__item:hover > .item__content > .item__content__yoga-header {
   color: white; }
@@ -572,7 +584,8 @@ a {
   color: #ffffff;
   text-decoration: none; }
 
-.pricing__button, .pricing__button {
+.pricing__button,
+.pricing__button {
   display: block;
   width: 165px;
   margin-top: 37px;
@@ -585,7 +598,8 @@ a {
   vertical-align: top;
   margin-top: 6px; }
 
-.promo::before, .promo::after {
+.promo::before,
+.promo::after {
   background-color: #ff0e3b; }
 
 .contact-block {
@@ -593,7 +607,8 @@ a {
   padding: 0 15px;
   text-align: center; }
 
-.contact-block__string-1, contact-block__string-2 {
+.contact-block__string-1,
+contact-block__string-2 {
   display: block; }
 
 .contact-block-icon {
@@ -630,7 +645,8 @@ a {
   letter-spacing: 0.2em;
   line-height: 1.2; }
 
-.contact-block__string-1, .contact-block__string-2 {
+.contact-block__string-1,
+.contact-block__string-2 {
   display: block;
   font-size: 14px;
   font-weight: bold;
@@ -657,7 +673,6 @@ a {
 
 .trainer-card__info {
   background-color: white;
-  border: 1px solid black;
   position: absolute;
   width: 198px;
   height: 120px;
@@ -699,5 +714,63 @@ a {
   display: flex;
   width: 100px;
   justify-content: space-between; }
+
+.trainer-card__descrioption {
+  padding-top: 80px;
+  margin-bottom: 60px; }
+
+.text-gray {
+  text-align: center; }
+
+.new::before {
+  content: 'New';
+  display: block;
+  position: absolute;
+  top: -18px;
+  left: 25px;
+  background: #443586;
+  width: 78px;
+  height: 37px;
+  z-index: 1;
+  text-align: center;
+  line-height: 37px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff; }
+
+.new > .item__content {
+  background: #ff0e3b;
+  color: white; }
+
+.new > .item__content > .header-3,
+.new > .item__content > .item__content__text {
+  color: white; }
+
+.icon-box {
+  width: 380px;
+  padding: 0 15px;
+  min-height: 340px; }
+
+.icon-box__icon {
+  width: 82px;
+  height: 82px; }
+
+.icon-box__icon > img {
+  width: 100%;
+  height: 100%; }
+
+.icon-box__header {
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  line-height: 1.2;
+  margin-top: 35px;
+  color: #2c2c2c;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 24px; }
+
+.icon-box__description {
+  text-align: left;
+  margin-top: 30px; }
 
 /*# sourceMappingURL=index.css.map */
