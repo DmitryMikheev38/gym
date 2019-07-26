@@ -1,100 +1,28 @@
 <template>
-  <div class="wrap">
-    <div class="slide">
-
-        <div class="image-container" ref="conteiner" @click="run">
-          <transition name="ma" >
-          <div class="image" v-for="image in  cImg" :key="image.index" :data-index='image.index' :style="{'background-color': image.color}"></div>
-          </transition>
-        </div>
-
-      <div class="buttons" @click="toglle">
-        <button class="toglle" ref="button" v-for="image in img" :key="image.index" :data-index="image.index">t</button>
+  <div class="container">
+    <div class="home">
+      <div class="home__prallax" data-parallax="scroll" data-speed="0.7" bleed="100"></div>
+      <div class="home__overlay"></div>
+      <div class="home__container">
+        <h1 class="header-1 home__header bold">BLOG</h1>
       </div>
-
     </div>
-
   </div>
-
 </template>
 
 <script>
-import { timeout } from 'q';
+
 export default {
-  data () {
-    return {
-      ff: false,
-      img: [
-          {url: 'url(../../../public/index.jpg)', class: true, index: 0, color: 'red'},
-          {url: 'url(../../../public/cta.jpg)', class: false, index: 1, color: 'blue'},
-          {url: 'url(../../../public/promo.jpg)', class: false, index: 2, color: 'green'}
-        ],
-      timer: '',
-      iterator: 0,
-      tr: 200
-    }
-  },
-  computed: {
-    cImg() {
-      var image = [];
-      for (let i =0; i<this.img.length; i++) {
-        if (this.img[i].class === true) {
-          image.push(this.img[i])
-        }
-      }
-      return image
-    }
-  },
-  methods: {
-    run() {
 
-    },
-    toglle (e) {
-      if (e.target.tagName !== 'BUTTON') return
-      var index = e.target.getAttribute('data-index');
-      var children = e.target.parentNode.children
-      for (let i =0; i<children.length; i++) {
-        children[i].classList.remove('button-active');
-      }
-      e.target.classList.add('button-active');
-      this.iterator = index;
-      setTimeout( () => {
-        for (let i =0; i<this.img.length; i++) {
-        this.img[i].class = false;
-      }
-      this.img[index].class = true;
-
-
-      }, 1);
-
-
-
-
-      // console.log(mounted.interval)
-    }
-
-
-  },
   mounted() {
-
-    var buttons = this.$refs.button;
-    // var iterator = this.iterator;
-    this.timer = setTimeout(function tick () {
-      console.log(this.iterator + 'fdfd')
-      if(this.iterator > buttons.length - 1) {
-        this.iterator = 0;
-      }
-      buttons[this.iterator].click()
-      this.iterator++
-      this.timer = setTimeout(tick.bind(this), 3000)
-    }.bind(this), 3000)
+        $(".home__prallax").parallax({ imageSrc: "static/images/blog.jpg" });
 
   },
   beforeDestroy() {
-    clearInterval(this.timer)
-  },
-  destroyed() {
-    console.log('destroyd from Blog')
+    const mirror = $(".parallax-mirror");
+    for (let i = 0; i < mirror.length; i++) {
+      mirror[i].remove();
+    }
   }
 
 }
@@ -102,90 +30,53 @@ export default {
 
 <style scoped>
 
-.slide {
-  width: 200px;
-  height: 100px;
-  border: 1px solid black;
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 371px;
+}
+
+.home__prallax {
   position: absolute;
-  top: 400px;
-  left: 500px;
-
+  width: 100%;
+  min-height: 371px;
+  background: transparent;
 }
 
-.toglle {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-
-}
-
-.buttons {
+.home__overlay {
   position: absolute;
-  bottom: 30px;
-}
-
-.image-container {
-  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: 600px;
-  background-color: rgba(0, 0, 0, 0.2);
-  /* transform: translateX(-200px); */
+  background: linear-gradient(
+    to right,
+    rgba(120, 0, 255, 0.34),
+    rgba(255, 14, 59, 0.34)
+  );
 }
 
-.image {
-  width: 200px;
-  height: 100%;
-  /* background-image: url(../../../public/index.jpg); */
-  background-size: cover;
-  transform: translate(00px);
-  float: left;
-  display: block;
+.home__header {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 12px;
 }
 
-.active {
-  display: inline-block;
-   transition: all 1s;
+.home__container {
+  min-height: 371px;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 162px;
+  position: relative;
 }
 
-.button-active {
-  background-color: brown;
-}
-
-.ma-enter {
-  opacity: 1;
- transform: translate(0%)
-}
-
-.ma-enter-active {
-  transition: all 1s linear;
-}
-
-.ma-enter-to {
-  transform: translate(-100%)
+.home__header {
+  margin-top: 65px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 
-
-.ma-leave-active {
-  /* animation: 3s slid linear;
- */
-
-transition: all .1s linear;
-transition-delay: 1s;
-}
-.ma-leave-to {
-  opacity: 0;
-}
-
-@keyframes slid {
-  from {
-    transform: translateX(000px);
-  }
-
-  to {
-    transform: translateX(-200px);
-  }
-
-}
 </style>
 

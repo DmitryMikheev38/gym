@@ -1,187 +1,80 @@
 <template>
-<div class="wrap">
-    <div class="owl-carousel owl-theme pricing">
-      <div v-for="item in 5" :key="item" class="ff">
-        <div class="dd">
-                  <img src="../../../public/index.jpg" alt="" srcset="">
-
-        </div>
+  <div class="container">
+    <div class="home">
+      <div class="home__prallax" data-parallax="scroll" data-speed="0.7" bleed="100"></div>
+      <div class="home__overlay"></div>
+      <div class="home__container">
+        <h1 class="header-1 home__header bold">Classes</h1>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      img: [
-        {color: 'red', index: 0},
-        {color: 'green', index: 1},
-        {color: 'yellow', index: 2},
-        {color: 'gray', index: 3},
-        {color: 'brown', index: 4},
-        {color: 'blue', index: 5},
-      ],
-      transl: 0
+  mounted() {
+
+    $(".home__prallax").parallax({ imageSrc: "static/images/classes.jpg" });
+
+  },
+  beforeDestroy() {
+    const mirror = $(".parallax-mirror");
+    for (let i = 0; i < mirror.length; i++) {
+      mirror[i].remove();
     }
-  },
-  computed: {
-    // transl () {
-
-    // }
-  },
-  methods: {
-    cl (e) {
-      var cont = this.$refs.conteiner;
-
-      var index = Number(e.target.getAttribute('data-index'))
-      if(index === 5) {
-        index = 0;
-      }
-      console.log(cont)
-      this.transl = `translate3d(-${index*200}px, 0px, 0px)`;
-      console.log(this.transl)
-
-    },
-
-    remove (e) {
-      e.target.remove();
-    }
-  },
-  mounted () {
-    $(document).ready(function() {
-      $(".pricing").owlCarousel({
-        responsive: {
-          //Адаптивность. Кол-во выводимых элементов при определенной ширине.
-          0: {
-            items: 1
-          },
-          600: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        },
-        margin: 30,
-        items: 3,
-        nav: false,
-        dots: false,
-      });
-    });
   }
-}
+};
 </script>
 
 <style scoped>
-.ma-enter {
-  opacity: 1;
- transform: translate(0%)
-}
 
-
-
-.ma-enter-active {
-  transition: all 1s linear;
-}
-
-.ma-enter-to {
-  transform: translate(-100%)
-}
-
-.pricing {
-  margin-top: 400px;
-  width: 100%;
-  height: 100px;
-}
-
-.ff {
-  widows: 100%;
-  height: 100%;
-}
-
-.dd {
-  width: 100%;
-  height:1 100%
-}
-
-
-
-.ma-leave-active {
-  /* animation: 3s slid linear;
- */
-
-transition: all 1s linear;
-}
-.ma-leave-to {
-  transform: translateX(-200px);
-}
-
-@keyframes slid {
-  from {
-    transform: translateX(000px);
-  }
-
-  to {
-    transform: translateX(-200px);
-  }
-
-}
-
-img {
-  width: 300px;
-  height: 200px
-}
-
-.slide {
-  width: 600px;
-  height: 200px;
-  border: 1px solid black;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  z-index: 100;
-
-}
-
-.image {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
+.home {
   position: relative;
-  opacity: 0.5;
-  transition: all 1s linear;
-
+  width: 100%;
+  min-height: 371px;
 }
 
-.image-container {
-  /* width: auto;
-  height: 200px; */
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 90;
-   transition: all 1s linear;
-}
-
-.toglle {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-
-}
-
-.buttons {
+.home__prallax {
   position: absolute;
-  bottom: 30px;
+  width: 100%;
+  min-height: 371px;
+  background: transparent;
 }
 
-.button-active {
-  background-color: brown;
+.home__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(120, 0, 255, 0.34),
+    rgba(255, 14, 59, 0.34)
+  );
 }
 
-.wrap {
-  width: 500px;
-  overflow: hidden;
+.home__header {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 12px;
 }
+
+.home__container {
+  min-height: 371px;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 162px;
+  position: relative;
+}
+
+.home__header {
+  margin-top: 65px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
 
 </style>

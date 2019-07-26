@@ -62,12 +62,10 @@
         <div class="icon-boxes__row">
           <div class="icon-box row__icon-box" v-for="box in iconBoxes" :key="box.icon">
             <div class="icon-box__icon">
-              <img :src="box.icon" alt="">
+              <img :src="box.icon" alt />
             </div>
             <h3 class="icon-box__header">{{box.header}}</h3>
-            <p class="icon-box__description text-gray">
-              {{box.description}}
-              </p>
+            <p class="icon-box__description text-gray">{{box.description}}</p>
           </div>
         </div>
       </div>
@@ -131,19 +129,22 @@ export default {
       ],
       iconBoxes: [
         {
-          icon: 'static/images/icon_4.svg',
-          header: 'EQUIPPED',
-          description: 'Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus.'
+          icon: "static/images/icon_4.svg",
+          header: "EQUIPPED",
+          description:
+            "Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus."
         },
         {
-          icon: 'static/images/icon_5.svg',
-          header: 'HEALTHY DIET',
-          description: 'Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus.'
+          icon: "static/images/icon_5.svg",
+          header: "HEALTHY DIET",
+          description:
+            "Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus."
         },
         {
-          icon: 'static/images/icon_6.svg',
-          header: 'TRAINERS',
-          description: 'Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus.'
+          icon: "static/images/icon_6.svg",
+          header: "TRAINERS",
+          description:
+            "Aenean auctor nisl vitae auctor faucibus. Pellentes imperdiet auctor eros, sit amet ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus."
         }
       ]
     };
@@ -255,7 +256,7 @@ export default {
   background: transparent;
   top: 0;
   width: 100%;
-  min-height: 653.2px;
+  min-height: 100%;
 }
 
 .cta__container {
@@ -274,7 +275,7 @@ export default {
 }
 
 .cta__header {
-    text-align: center;
+  text-align: center;
   color: white;
   margin-top: 8px;
 }
@@ -308,5 +309,106 @@ export default {
   display: flex;
 }
 
+@media (max-width: 1200px) {
+  .classes__container,
+  .cta__container,
+  .icon-boxes__container {
+    width: 960px;
+  }
 
+  .carousel__item {
+    width: 480px;
+  }
+
+  .icon-box {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1050px) {
+}
+
+@media (max-width: 990px) {
+  .classes__container,
+  .cta__container,
+  .icon-boxes__container {
+    width: 720px;
+  }
+
+  .icon-boxes__row {
+    display: block;
+  }
+
+  .carousel__item {
+    width: 360px;
+  }
+
+  .item__content {
+    min-height: 445px;
+  }
+
+  .cta__content {
+    width: 100%;
+  }
+
+  .icon-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+}
+
+@media (max-width: 770px) {
+  .classes__container,
+  .cta__container,
+  .icon-boxes__container {
+    width: 540px;
+  }
+
+  .carousel__item {
+    width: 100%;
+  }
+
+  .item__content {
+    min-height: 300px;
+  }
+
+  .cta__description {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 730px) {
+}
+
+@media (max-width: 575px) {
+  .classes__container,
+  .cta__container,
+  .icon-boxes__container {
+    width: 100%;
+  }
+
+  .header-2 {
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: 8px;
+  }
+
+  .btn-one,
+  .btn-two {
+    width: 157px;
+    height: 56px;
+  }
+
+  .btn-one > span,
+  .btn-two > span {
+    font-size: 12px;
+  }
+
+  .header-1 {
+    font-size: 48px;
+  }
+}
 </style>
