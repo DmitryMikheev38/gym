@@ -164,7 +164,7 @@
       <div
         class="pralax-background"
         data-parallax="scroll"
-        data-speed="0.7"
+        data-speed="0.8"
       ></div>
       <div class="pricing__container">
         <div class="pricing__header-container">
@@ -501,7 +501,8 @@ export default {
           }
         },
         margin: 30,
-        items: 3
+        items: 3,
+        dots: false
       });
     });
   },
@@ -595,6 +596,7 @@ export default {
   min-height: 620px;
   width: 350px;
 }
+
 .pralax-background {
   width: 100%;
   height: 100%;

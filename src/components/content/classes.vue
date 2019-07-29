@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="home">
-      <div class="home__prallax" data-parallax="scroll" data-speed="0.7" bleed="100"></div>
+      <div class="home__prallax" data-parallax="scroll" data-speed="0.8" bleed="100"></div>
       <div class="home__overlay"></div>
       <div class="home__container">
         <h1 class="header-1 home__header bold">Classes</h1>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="cta">
-      <div class="cta__prallax" data-parallax="scroll" data-speed="0.7" bleed="100"></div>
+      <div class="cta__prallax" data-parallax="scroll" data-speed="0.8"></div>
       <div class="cta__container">
         <div class="cta__content">
           <h4 class="header-4 cta__aerobic-program">AEROBICS PROGRAM</h4>
