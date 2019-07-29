@@ -526,10 +526,6 @@ export default {
 </script>
 
 <style scoped>
-
-.pricing__header-container {
-  z-index: 1000;
-}
 .info-enter {
   opacity: 0;
 }
