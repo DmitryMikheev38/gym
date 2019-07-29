@@ -271,38 +271,3 @@ a {
 .router-link-exact-active {
   color: #ff0e3b;
 }
-
-.btn-two--blog {
-  border: none;
-  background-color: #f2f2f9;
-
-}
-
-.btn-two--blog > span {
-  color: #2c2c2c;
-  transition: all .3s;
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  -ms-transition: all .3s;
-  -o-transition: all .3s;
-}
-
-.btn-two--blog:hover > span {
-  color: white;
-}
-
-.btn-two--send {
-  background: #ff0e3b;
-}
-
-.btn-two--send > span {
-  color: white;
-}
-
-.btn-two--send:hover {
-  background:white;
-}
-
-.btn-two--send:hover > span {
-  color: #ff0e3b;
-}
