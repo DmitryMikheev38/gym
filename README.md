@@ -1,4 +1,4 @@
-Hosting URL: https://gym-m-5f88b.firebaseapp.com
+Hosting URL: https://my-gym-d8673.firebaseapp.com
 
 # gim
 
