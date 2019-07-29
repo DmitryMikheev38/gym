@@ -1,3 +1,5 @@
+Hosting URL: https://gym-m-5f88b.firebaseapp.com
+
 # gim
 
 > A Vue.js project
